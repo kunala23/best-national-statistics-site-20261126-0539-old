@@ -1,0 +1,184 @@
+/* NusaStat — original design. Deep teal + warm amber on off-white.
+   System fonts only, so the first load is just this file and the scripts. */
+
+:root {
+  --teal: #0f4c5c;
+  --teal-dark: #0a3540;
+  --amber: #e36414;
+  --amber-soft: #fdf0e4;
+  --ink: #16323a;
+  --muted: #5b6b70;
+  --line: #dfe6e8;
+  --bg: #f7f5f1;
+  --card: #ffffff;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+a { color: var(--teal); }
+a:hover { color: var(--amber); }
+
+/* Header */
+header.site {
+  background: var(--teal);
+  color: #fff;
+  padding: 0 0 0;
+}
+header.site .wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 18px 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 20px;
+}
+.brand {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  color: #fff;
+  text-decoration: none;
+}
+.brand span { color: #f4a261; }
+.tagline { color: #cfe3e8; font-size: 14px; }
+nav.main {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 10px 20px 14px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 6px;
+}
+nav.main a {
+  color: #eaf4f6;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 14.5px;
+}
+nav.main a:hover { background: rgba(255, 255, 255, 0.14); color: #fff; }
+nav.main a.active { background: var(--amber); color: #fff; font-weight: 600; }
+
+/* Layout */
+main { max-width: 1080px; margin: 0 auto; padding: 24px 20px 40px; }
+h1 { font-size: 30px; line-height: 1.2; margin: 4px 0 8px; letter-spacing: -0.5px; }
+h2 { font-size: 21px; margin: 28px 0 10px; }
+h3 { font-size: 17px; margin: 0 0 6px; }
+.lede { color: var(--muted); font-size: 17px; max-width: 720px; }
+.source { color: var(--muted); font-size: 13px; margin-top: 6px; }
+.note {
+  background: var(--amber-soft);
+  border-left: 4px solid var(--amber);
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 18px 0;
+  font-size: 14.5px;
+}
+
+/* Indicator cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin: 20px 0;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+}
+.card .label { font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.4px; }
+.card .value { font-size: 30px; font-weight: 800; color: var(--teal); margin: 4px 0 2px; }
+.card .change { font-size: 14px; }
+.card .src { font-size: 12.5px; color: var(--muted); margin-top: 6px; }
+
+/* Chart panels */
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin: 18px 0;
+}
+.panel svg { width: 100%; height: auto; display: block; }
+.panel h3 { margin-bottom: 2px; }
+.panel .sub { color: var(--muted); font-size: 13.5px; margin: 0 0 10px; }
+
+/* Controls */
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin: 14px 0; }
+.controls label { font-weight: 600; font-size: 14px; }
+select, input[type="search"] {
+  font: inherit;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  color: var(--ink);
+}
+button.chip {
+  font: inherit;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--teal);
+  background: #fff;
+  color: var(--teal);
+  cursor: pointer;
+}
+button.chip[aria-pressed="true"] { background: var(--teal); color: #fff; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; background: var(--card); font-size: 15px; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--line); }
+th { background: var(--teal); color: #fff; }
+th button {
+  all: unset;
+  cursor: pointer;
+  font-weight: 700;
+  color: #fff;
+}
+th button:hover { text-decoration: underline; }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+tr:hover td { background: #f2f7f8; }
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+
+/* Lists */
+ul.releases { list-style: none; padding: 0; margin: 0; }
+ul.releases li {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px 16px;
+  margin: 8px 0;
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+}
+ul.releases .date { color: var(--amber); font-weight: 700; white-space: nowrap; font-size: 14px; }
+footer.site {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 13.5px;
+  border-top: 1px solid var(--line);
+}
+
+/* Phone layout */
+@media (max-width: 640px) {
+  h1 { font-size: 24px; }
+  .brand { font-size: 24px; }
+  nav.main a { padding: 6px 9px; font-size: 13.5px; }
+  main { padding: 18px 14px 32px; }
+  .card .value { font-size: 26px; }
+  ul.releases li { flex-direction: column; gap: 2px; }
+}
